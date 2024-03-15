@@ -1,0 +1,115 @@
+14:44:36 **** Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "toggle_led.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Learn_In_Depth\working_dir\Embedded_Systems\EmbeddedC\toggle_led\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle_led.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle_led.elf
+ 
+arm-none-eabi-size   toggle_led.elf 
+arm-none-eabi-objdump -h -S  toggle_led.elf  > "toggle_led.list"
+   text	   data	    bss	    dec	    hex	filename
+    672	      8	   1568	   2248	    8c8	toggle_led.elf
+Finished building: default.size.stdout
+ 
+Finished building: toggle_led.list
+ 
+06:54:53 **** Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc -o "toggle_led.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Learn_In_Depth\working_dir\Embedded_Systems\EmbeddedC\toggle_led\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle_led.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle_led.elf
+ 
+arm-none-eabi-size   toggle_led.elf 
+arm-none-eabi-objdump -h -S  toggle_led.elf  > "toggle_led.list"
+   text	   data	    bss	    dec	    hex	filename
+    672	      8	   1568	   2248	    8c8	toggle_led.elf
+arm-none-eabi-objcopy  -O ihex  toggle_led.elf  "toggle_led.hex"
+Finished building: default.size.stdout
+Finished building: toggle_led.list
+ 
+Finished building: toggle_led.hex
+ 
+arm-none-eabi-objcopy  -O binary  toggle_led.elf  "toggle_led.bin"
+ 
+Finished building: toggle_led.bin
+ 
+07:26:05 **** Incremental Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:30:9: error: unknown type name 'vuint32'
+   30 |         vuint32 reg;
+      |         ^~~~~~~
+../Src/main.c:33:9: error: unknown type name 'vuint32'
+   33 |         vuint32 reserved :13;
+      |         ^~~~~~~
+../Src/main.c:34:9: error: unknown type name 'vuint32'
+   34 |         vuint32 pin13 :1;
+      |         ^~~~~~~
+../Src/main.c:39:29: warning: initialization of 'volatile UR_ODR_t *' from incompatible pointer type 'volatile vuint32_t *' {aka 'volatile unsigned int *'} [-Wincompatible-pointer-types]
+   39 | volatile UR_ODR_t * p2ODR = (vuint32_t *)(PORTA_BASE + 0x0c);
+      |                             ^
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+07:26:49 **** Incremental Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:30:9: error: unknown type name 'vuint32'
+   30 |         vuint32 reg;
+      |         ^~~~~~~
+../Src/main.c:33:9: error: unknown type name 'vuint32'
+   33 |         vuint32 reserved :13;
+      |         ^~~~~~~
+../Src/main.c:34:9: error: unknown type name 'vuint32'
+   34 |         vuint32 pin13 :1;
+      |         ^~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+07:28:30 **** Incremental Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "toggle_led.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Learn_In_Depth\working_dir\Embedded_Systems\EmbeddedC\toggle_led\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle_led.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle_led.elf
+ 
+arm-none-eabi-size   toggle_led.elf 
+arm-none-eabi-objdump -h -S  toggle_led.elf  > "toggle_led.list"
+   text	   data	    bss	    dec	    hex	filename
+    672	     12	   1564	   2248	    8c8	toggle_led.elf
+arm-none-eabi-objcopy  -O ihex  toggle_led.elf  "toggle_led.hex"
+Finished building: default.size.stdout
+Finished building: toggle_led.list
+ 
+Finished building: toggle_led.hex
+ 
+arm-none-eabi-objcopy  -O binary  toggle_led.elf  "toggle_led.bin"
+ 
+Finished building: toggle_led.bin
+ 
+14:58:35 **** Incremental Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:40:29: error: cast to union type from type not present in union
+   40 | volatile UR_ODR_t * p2ODR = (volatile UR_ODR_t )(PORTA_BASE + 0x0c);
+      |                             ^
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:59:01 **** Incremental Build of configuration Debug for project toggle_led ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "toggle_led.elf" @"objects.list"   -mcpu=cortex-m3 -T"B:\Learn_In_Depth\working_dir\Embedded_Systems\EmbeddedC\toggle_led\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle_led.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle_led.elf
+ 
+arm-none-eabi-size   toggle_led.elf 
+arm-none-eabi-objdump -h -S  toggle_led.elf  > "toggle_led.list"
+   text	   data	    bss	    dec	    hex	filename
+    672	     12	   1564	   2248	    8c8	toggle_led.elf
+arm-none-eabi-objcopy  -O ihex  toggle_led.elf  "toggle_led.hex"
+Finished building: default.size.stdout
+Finished building: toggle_led.list
+ 
+Finished building: toggle_led.hex
+ 
+arm-none-eabi-objcopy  -O binary  toggle_led.elf  "toggle_led.bin"
+ 
+Finished building: toggle_led.bin
+ 
